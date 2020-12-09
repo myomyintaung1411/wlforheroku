@@ -10,22 +10,7 @@
 export default {
   name: "Init",
   data() {
-    return {
-     
-    };
-  },
-  methods: {
-    GetAgentdata(){
-      
-      this.axios.post(this.$Global.agentUrl).then(res =>{
-        console.log("result agent",res)
-      }).catch((e)=>{
-        console.log(e);
-      })
-    }
-  },
-  created() {
-    this.GetAgentdata();
+    return {};
   },
 };
 </script>
@@ -35,8 +20,17 @@ export default {
 
 
 <style lang="scss">
-body {
-  overflow-x: hidden !important;
+// body {
+//   //overflow-x: hidden !important;
+// }
+
+// @media only screen and (device-width: 680px) {
+//   body {
+//     overflow-x: scroll  !important;
+//   }
+// }
+html {
+  scroll-behavior: smooth;
 }
 * {
   margin: 0;
@@ -46,7 +40,6 @@ body {
 }
 #app {
   //  overflow: hidden;
-
   min-width: 1275px !important;
   background-color: #000;
 }

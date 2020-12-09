@@ -33,10 +33,6 @@
               height: 50px;
             "
           >
-            <!-- <button
-           
-              class="btn"
-            >Download</button> -->
           </div>
         </div>
       </div>
@@ -86,33 +82,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      resultdata: [
-        {
-          id: 1,
-          title: "安卓APK版",
-          subtitle: "",
-          img: "https://img2.54ei.com/dfh/pcsrc/gbdfimages/icon-Android@1x.png",
-          btntext: "安装教学",
-        },
-        {
-          id: 2,
-          title: "码上安装",
-          subtitle: "苹果及安卓手机版扫描下载",
-          img: "https://img2.54ei.com/dfh/pcsrc/gbdfimages/img-2vm@1x.png?2",
-          btntext: "下载安装",
-        },
-        {
-          id: 3,
-          title: "苹果iOS版",
-          subtitle: "",
-          img: "https://img2.54ei.com/dfh/pcsrc/gbdfimages/icon-iOS@1x.png",
-          btntext: "安装教学",
-        },
-      ],
-    };
-  },
 };
 </script>
 

@@ -324,7 +324,7 @@ export default {
 }
 
 .is-active {
-  background: #be6868;
+  background: #423f3f;
 }
 
 .btnone {

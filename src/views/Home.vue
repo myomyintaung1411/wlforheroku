@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+
     <Header />
 
     <Banner />
@@ -19,6 +20,7 @@
 </template>
        
 <script>
+import AES from "../api/aes";
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Scrollbar from "@/components/Scrollbar.vue";
@@ -40,6 +42,40 @@ export default {
     Footertest,
   },
 
+  methods: {
+    GetAgentdata(id) {
+           var en = this.$Global.en;
+      let data = JSON.stringify({ Id: id });
+      let endata = (AES.encrypt(data,en))
+  
+      var decryptdata = JSON.parse(AES.decrypt(endata,en))
+      // console.log(decryptdata,"data of decryptdata")
+      this.axios
+        .post(this.$Global.agentUrl, decryptdata)
+        .then((res) => {
+          var body = res.data;
+          var msg = JSON.parse(AES.decrypt(body, en));
+            //  console.log(msg, "response msg of created")
+         if(msg.JsonData.code == 200){
+           //saving first time creted agentid and name to use in register section
+           this.$Global.optioner.Agentid = msg.JsonData.Id
+            this.$Global.optioner.Agentname = msg.JsonData.name
+         }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+  created() {
+    let reg1 = new RegExp("(^|&)" + "id" + "=([^&]*)(&|$)", "i");
+    let r1 = window.location.search.substr(1).match(reg1);
+    if (r1 !== null) {
+      var id = r1[2];
+    }
+
+    this.GetAgentdata(id);
+  },
 };
 </script>
 

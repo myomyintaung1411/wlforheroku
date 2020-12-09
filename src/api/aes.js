@@ -31,4 +31,52 @@ export default {
     });
     return decrypted.toString(CryptoJS.enc.Utf8);
   },
+
+
+
+  gameEncrypt(data,G_KP) {
+    var key = CryptoJS.enc.Utf8.parse(G_KP.key);
+    var iv = CryptoJS.enc.Utf8.parse(G_KP.iv);
+     
+    // if (keyStr) {
+    //   key = CryptoJS.enc.Utf8.parse(keyStr);
+    //   iv = CryptoJS.enc.Utf8.parse(ivStr);
+    // }
+    // console.log("accept ", data, G_KP)
+    let srcs = CryptoJS.enc.Utf8.parse(data);
+    var encrypted = CryptoJS.AES.encrypt(srcs, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.ZeroPadding
+    });
+    // console.log("-=-=-=-", encrypted.ciphertext)
+    return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+     
+  },
+
+
+  gameDecrypt(data, G_KP) {
+
+    var key = CryptoJS.enc.Utf8.parse(G_KP.key);
+    var iv = CryptoJS.enc.Utf8.parse(G_KP.iv);
+
+    // if (keyStr) {
+    //   key = CryptoJS.enc.Utf8.parse(keyStr);
+    //   iv = CryptoJS.enc.Utf8.parse(ivStr);
+    // }
+
+    let base64 = CryptoJS.enc.Base64.parse(data);
+    let src = CryptoJS.enc.Base64.stringify(base64);
+
+    var decrypt = CryptoJS.AES.decrypt(src, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.ZeroPadding
+    });
+
+    var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+    return decryptedStr.toString();
+  }
+
+
 };

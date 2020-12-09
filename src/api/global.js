@@ -1,26 +1,27 @@
+  // eslint-disable-next-line no-unused-vars
   const UserName="";
+  // eslint-disable-next-line no-unused-vars
   const Id="";
   export default
   {
     optioner:{
-       UserName:"",
-       Id:"",
-       arrJsb: [],
-       optionScore: 0,
-       xmb_s: "",
-       xmb_d: "",
-       zcb: "",
-       xmType: "",
-       level:2,
-       webSit:"",
-       token:"",
-       pw:"",
-       enable:1
+      Agentid: '',
+      Agentname: "",
+    },
+
+    myLoginInfo: {
+      loginId: "",
+      loginName: '',
+      loginBalance: '',
+      loginEnable:''
     },
    
     registerurl: " http://114.29.253.162:3198/regist",
     loginurl:    "http://114.29.253.162:3198/login ",
-    agentUrl:    "http://114.29.253.162:3198/getAgentInfo ",
+    agentUrl: "http://114.29.253.162:3198/getAgentInfo ",
+    scrollData: "http://114.29.253.162:3198/getBulletin",
+    PaymentUrl: 'https://api.zf166.cc/v1/biz/newOrder',
+    PaymentCallbackUrl: 'http://114.29.253.162:3198/pay',
 
     // selectInfo: {
     //    selectAgent: "",
@@ -33,6 +34,16 @@
       key: "@hKe9@A1lKe9$Tz1kE@8HnG7",
       iv: 3,
     },
+    gameEn: {
+      key: "@hKe9@A1lKe9$Tz1kE@8HnG7",
+      
+      iv:'1234567890123456'
+    },
+    // testGameEn: {
+    //   key: "@hKe9@A1lKe9$Tz1",
+      
+    //   iv:'1234567890123456'
+    // },
     listDataMember:{
       memberListData: [],
       totalMemberCount: 0
